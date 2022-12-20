@@ -8,7 +8,17 @@ from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 
 # import beer review data
-data = pd.read_csv('data/beer_reviews.csv')
+#data = pd.read_csv('data/beer_reviews.csv')
+
+# save beer review data as compressed pickle so we can upload it to Github
+#data_pickle = Path('data/beer_reviews.pkl')
+#data.to_pickle(data_pickle, compression='zip')
+
+# import beer review data from compressed pickle
+data_pickle = Path('data/beer_reviews.pkl')
+data = pd.read_pickle(data_pickle, compression='zip')
+
+# check the data
 data.head()
 data.info()
 
